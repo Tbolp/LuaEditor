@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LuaEditor</string>
+    <string name="open_folder">Open Folder</string>
+    <string name="ok">OK</string>
+    <string name="fa_folder_open_o">&#xf115;</string>
+    <string name="fa_play">&#xf04b;</string>
+</resources>
