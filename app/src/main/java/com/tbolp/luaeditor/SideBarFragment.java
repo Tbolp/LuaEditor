@@ -25,9 +25,7 @@ public class SideBarFragment extends Fragment {
         content_viewpage_ = (ViewPager2)view.findViewById(R.id.content_viewpage);
         content_adapter_ = new ContentAdapter(this);
         content_viewpage_.setAdapter(content_adapter_);
-        Typeface web_font = Typeface.createFromAsset(getActivity().getAssets(), "fontawesome-webfont.ttf");
         Button file_btn = (Button)view.findViewById(R.id.explorer_button);
-        file_btn.setTypeface(web_font);
         file_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,7 +33,6 @@ public class SideBarFragment extends Fragment {
             }
         });
         Button run_btn = (Button)view.findViewById(R.id.run_lua_button);
-        run_btn.setTypeface(web_font);
         run_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

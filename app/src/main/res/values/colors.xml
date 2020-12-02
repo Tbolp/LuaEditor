@@ -7,7 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="sidebar">#FF333333</color>
+    <color name="colorPrimary">#FF333333</color>
+    <color name="gray">#FF3C3C3C</color>
     <color name="content">#FF252526</color>
     <color name="editor">#FF1E1E1E</color>
 </resources>

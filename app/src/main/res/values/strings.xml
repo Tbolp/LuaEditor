@@ -4,4 +4,6 @@
     <string name="ok">OK</string>
     <string name="fa_folder_open_o">&#xf115;</string>
     <string name="fa_play">&#xf04b;</string>
+    <string name="fa_folder_o">&#xf114;</string>
+    <string name="fa_file_o">&#xf016;</string>
 </resources>

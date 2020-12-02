@@ -29,20 +29,22 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import lombok.Getter;
 
+interface OnFolderSelectListener {
+    public void OnFolderSelect(String path);
+}
+
+
 public class OpenFolderFragment extends DialogFragment {
 
+    private OnFolderSelectListener listener_;
     private TextView dir_path_;
     private ListView dir_list_;
     private ArrayAdapter<String> adapter_;
     private String current_path_ = "";
-    private boolean is_choose_ = false;
 
-    public String CurrentPath(){
-        return current_path_;
-    }
-
-    public boolean IsChoose(){
-        return is_choose_;
+    public  OpenFolderFragment(OnFolderSelectListener listener){
+        super();
+        listener_= listener;
     }
 
     @Override
@@ -91,7 +93,9 @@ public class OpenFolderFragment extends DialogFragment {
         builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                is_choose_ = true;
+                if(listener_ != null){
+                    listener_.OnFolderSelect(current_path_);
+                }
             }
         });
         return builder.create();
