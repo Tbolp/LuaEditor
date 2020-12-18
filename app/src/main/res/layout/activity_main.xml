@@ -25,18 +25,26 @@
             android:layout_weight="8"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/input_edit"
+            <fragment
+                class="com.tbolp.luaeditor.EditorFragment"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="7"
-                android:background="@color/cardview_dark_background"
-                android:ems="10"
-                android:gravity="start|top"
-                android:inputType="textMultiLine"
-                android:padding="3dp"
-                android:text="@={vm.input}"
-                android:textColor="@color/white" />
+                />
+
+<!--            <EditText-->
+<!--                android:visibility="invisible"-->
+<!--                android:id="@+id/input_edit"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="7"-->
+<!--                android:background="@color/cardview_dark_background"-->
+<!--                android:ems="10"-->
+<!--                android:gravity="start|top"-->
+<!--                android:inputType="textMultiLine"-->
+<!--                android:padding="3dp"-->
+<!--                android:text="@={vm.input}"-->
+<!--                android:textColor="@color/white" />-->
 
             <TextView
                 android:id="@+id/output_textview"

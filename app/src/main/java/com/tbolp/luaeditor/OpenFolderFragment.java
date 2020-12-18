@@ -7,7 +7,6 @@ import android.content.DialogInterface;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Environment;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.Gravity;
@@ -27,7 +26,6 @@ import java.util.ArrayList;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-import lombok.Getter;
 
 interface OnFolderSelectListener {
     public void OnFolderSelect(String path);
@@ -71,7 +69,7 @@ public class OpenFolderFragment extends DialogFragment {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = requireActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.openfolder, null, false);
+        View view = inflater.inflate(R.layout.fragment_openfolder, null, false);
         dir_path_ = view.findViewById(R.id.dirpath_textview);
         File external_file = Environment.getExternalStorageDirectory();
         current_path_ = external_file.getAbsolutePath();

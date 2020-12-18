@@ -1,6 +1,5 @@
 package com.tbolp.luaeditor;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,9 +20,10 @@ public class SideBarFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.sidebar, container, false);
+        View view = inflater.inflate(R.layout.fragment_sidebar, container, false);
         content_viewpage_ = (ViewPager2)view.findViewById(R.id.content_viewpage);
         content_adapter_ = new ContentAdapter(this);
+        content_viewpage_.setUserInputEnabled(false);
         content_viewpage_.setAdapter(content_adapter_);
         Button file_btn = (Button)view.findViewById(R.id.explorer_button);
         file_btn.setOnClickListener(new View.OnClickListener() {
@@ -54,7 +54,7 @@ public class SideBarFragment extends Fragment {
             Fragment ret = null;
             switch (position){
                 case 0:
-                    ret = new FolderFragment();
+                    ret = new ProjectFragment();
                     break;
                 case 1:
                     ret = new DebugFragment();

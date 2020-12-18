@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ObservableField;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 import lombok.Getter;
 
 import android.Manifest;
@@ -44,14 +47,16 @@ class RunLua implements Runnable{
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private SharedData shared_data_;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         if(checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
                 checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
             requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
         }
-
-        super.onCreate(savedInstanceState);
+        shared_data_ = new ViewModelProvider(this).get(SharedData.class);
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         this.input.set("print(\"test\")");
         this.output.set("");

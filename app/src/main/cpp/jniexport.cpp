@@ -67,6 +67,21 @@ Java_com_tbolp_luaeditor_LuaInterpreter_lua_1tostring(JNIEnv *env, jobject thiz,
     return env->NewStringUTF(lua_tostring((lua_State*)instance, index));
 }
 
+
+extern "C"
+JNIEXPORT jlong JNICALL
+Java_com_tbolp_luaeditor_LuaInterpreter_luaL_1dofile(JNIEnv *env, jobject thiz, jlong instance,
+                                                     jstring filename) {
+    std::stringstream buffer;
+    std::streambuf * old = std::cout.rdbuf(buffer.rdbuf());
+    lua_State * L = (lua_State*)instance;
+    auto ret = luaL_dofile(L, env->GetStringUTFChars(filename, nullptr));
+    if(ret == LUA_OK) {
+        lua_pushstring(L, buffer.str().c_str());
+    }
+    std::cout.rdbuf(old);
+    return ret;
+}
 //extern "C"
 //JNIEXPORT jstring
 

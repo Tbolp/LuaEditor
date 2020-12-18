@@ -42,6 +42,17 @@ public class LuaInterpreter {
         return ret;
     }
 
+    public LuaRet DoFile(String filepath){
+        LuaRet ret = new LuaRet();
+        if(luaL_dofile(lua_stack_, filepath) == 0){
+            ret.ret = true;
+        }else{
+            ret.ret = false;
+        }
+        ret.message = lua_tostring(lua_stack_, -1);
+        return ret;
+    }
+
     private long lua_stack_;
 
     private native long luaL_newState();
@@ -49,5 +60,6 @@ public class LuaInterpreter {
     private native void lua_close(long instance);
     private native long luaL_dostring(long instance, String content);
     private native String lua_tostring(long instance, long index);
+    private native long luaL_dofile(long instance, String filename);
 
 }

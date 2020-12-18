@@ -2,8 +2,17 @@
     <string name="app_name">LuaEditor</string>
     <string name="open_folder">Open Folder</string>
     <string name="ok">OK</string>
+    <string name="input_name">Please Input Name</string>
+    <string name="are_you_sure">Are You Sure</string>
+    <string name="create_file_error">Create File Failed</string>
+    <string name="create_dir_error">Create Dirctory Failed</string>
+    <string name="delete_error">Delete Failed</string>
     <string name="fa_folder_open_o">&#xf115;</string>
     <string name="fa_play">&#xf04b;</string>
     <string name="fa_folder_o">&#xf114;</string>
     <string name="fa_file_o">&#xf016;</string>
+    <string name="fa_trash_o">&#xf014;</string>
+    <string name="fa_floppy_o">&#xf0c7;</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
